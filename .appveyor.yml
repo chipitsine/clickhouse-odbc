@@ -15,4 +15,4 @@ build_script:
 
 deploy_script:
    - ps: |
-       Push-AppveyorArtifact "vs\installer32\bin\Debug\clickhouse_odbc_x86.msi"
+       Push-AppveyorArtifact "vs\installer32\bin\Debug\clickhouse_odbc_x32.msi"
