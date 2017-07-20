@@ -4,15 +4,15 @@ clone_script:
   - cmd: git clone --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
 
 platform:
-  - x64
+  - x86
 
 configuration:
   - Debug
 
 build_script:
   - ps: |
-      msbuild vs/odbc64.sln
+      msbuild vs/odbc32.sln
 
 deploy_script:
    - ps: |
-       Push-AppveyorArtifact "vs\installer64\bin\Debug\clickhouse_odbc_x64.msi"
+       Push-AppveyorArtifact "vs\installer32\bin\Debug\clickhouse_odbc_x86.msi"
