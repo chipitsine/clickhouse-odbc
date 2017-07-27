@@ -14,14 +14,15 @@
   <?if $(var.Configuration) = Debug ?>
     <?define POCO_FOUNDATION = "PocoFoundation64d.dll" ?>
     <?define POCO_NET = "PocoNet64d.dll" ?>
-	<?define POCO_FOUNDATION_PDB = "PocoFoundation64d.pdb" ?>
+    <?define POCO_FOUNDATION_PDB = "PocoFoundation64d.pdb" ?>
     <?define POCO_NET_PDB = "PocoNet64d.pdb" ?>
+    <?define CrtMergeModule = "$(env.CommonProgramFiles)\Merge Modules\Microsoft_VC140_DebugCRT_x64.msm" ?>
   <?else?>
     <?define POCO_FOUNDATION = "PocoFoundation64.dll" ?>
     <?define POCO_NET = "PocoNet64.dll" ?>
+    <?define CrtMergeModule = "$(env.CommonProgramFiles)\Merge Modules\Microsoft_VC140_CRT_x64.msm" ?>
   <?endif ?>
 
-  <?define CrtMergeModule = "$(env.CommonProgramFiles)\Merge Modules\Microsoft_VC140_CRT_x64.msm" ?>
   <?define ANSI_ID = "568F7B5A-6943-4B87-AB67-51E52B91607F" ?>
   <?define POCOLIB_ID = "D771CE33-985F-4C0B-ADE1-629115BEA253" ?>
   <?define PRODUCT_ID= "D77FCBEA-C3A9-442C-8055-83CBDB57009B" ?>
