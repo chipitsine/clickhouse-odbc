@@ -59,6 +59,7 @@ script:
     else
       CMAKE_FLAGS="-DFIND_UNIXODBC_FIRST=1 $CMAKE_FLAGS"
     fi
-  - cmake -G Ninja -DCMAKE_CXX_COMPILER=`which $CXX` -DCMAKE_C_COMPILER=`which $CC` -DTEST_DSN=clickhouse_localhost -DTEST_DSN_W=clickhouse_localhost_w $CMAKE_FLAGS ..
-  - cmake --build . --target all
+  - export COVERITY_SCAN_BUILD_COMMAND_PREPEND="cmake -G Ninja -DCMAKE_CXX_COMPILER=`which $CXX` -DCMAKE_C_COMPILER=`which $CC` -DTEST_DSN=clickhouse_localhost -DTEST_DSN_W=clickhouse_localhost_w $CMAKE_FLAGS .."
+  - export COVERITY_SCAN_PROJECT_NAME="Clickhouse-odbc" COVERITY_SCAN_BRANCH_PATTERN="*" COVERITY_SCAN_NOTIFICATION_EMAIL="chipitsine@gmail.com" COVERITY_SCAN_BUILD_COMMAND="cmake --build . --target all"
+  - curl -s "https://scan.coverity.com/scripts/travisci_build_coverity_scan.sh" | bash || true
 
